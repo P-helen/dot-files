@@ -1,0 +1,24 @@
+# curly bracket
+snippet { "curly bracket" iA
+{$1}$0
+endsnippet
+
+# regular parenthesis
+snippet ( "regular parenthesis" iA
+($1)$0
+endsnippet
+
+# quotations
+snippet " "quotations" iA
+"$1"$0
+endsnippet
+
+# single quotes 
+snippet ' "single quotes" iA
+'$1'$0
+endsnippet
+
+# brackets
+snippet [ "brackets" iA
+[$1]$0
+endsnippet

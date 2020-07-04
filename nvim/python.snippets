@@ -1,0 +1,212 @@
+# Beginning of document
+
+# Set constants field setup
+snippet pcons "set constants" bA
+# specify constants
+$0
+endsnippet
+
+# Set constant (generic)
+snippet sc "set constants" bA
+${1:constant} = ${2:number} # ${3:comment} [${4:units}]
+$0
+endsnippet
+
+
+# Gravity constant
+snippet grav "gravity" bA
+g = 9.81 # Gravity [m/s^2];
+$0
+endsnippet
+
+# Water viscosity constant
+snippet muw "water viscosity" bA
+mu_w = 0.001002 # Water dynamic viscosity [N-s/m^2]
+$0
+endsnippet
+
+# Water density constant
+snippet rhow "water density" bA
+rho_w = 998 # Water density [kg/m^3]
+$0
+endsnippet
+
+# Air viscosity constant
+snippet mua "air viscosity" bA
+mu_a = 0.00001846 # Air dynamic viscosity [N-s/m^2]
+$0
+endsnippet
+
+# Air density constant
+snippet rhoa "air density" bA
+rho_a = 1.185 # Air density [kg/m^3]
+$0
+endsnippet
+
+# Air density constant
+snippet mL2m3 "milliliters to cubic meters" bA
+mL2m3 = 1e-6 # Milliliters to cubic meters
+$0
+endsnippet
+
+# Air density constant
+snippet in2cm "inches to centimeters" bA
+in2cm = 2.54 # Inches to centimeters
+$0
+endsnippet
+
+# Air density constant
+snippet in2m "inches to meters" bA
+in2m = 0.0254 # Inches to meters
+$0
+endsnippet
+
+# Air density constant
+snippet lbs2N "pounds to newtons" bA
+lbs2N = 4.44822162825 # Pounds to newtons
+$0
+endsnippet
+
+# Conversions setup
+snippet pconv "conversions setup" bA
+# Conversions
+$0
+endsnippet
+
+# centimeters to meters
+snippet cm2m "cm 2 m" bA
+cm2m = 0.01 # Centimeters to meters
+$0
+endsnippet
+
+# millimeters to meters
+snippet mm2m "mm 2 m" bA
+mm2m = 0.001 # Millimeters to meters
+$0
+endsnippet
+
+# Generic conversion
+snippet conv "conversion" bA
+${1:X2Y} = ${2:conversion} # ${3:X} to ${4:Y}
+$0
+endsnippet
+
+# Initialize arrays setup
+snippet pa "Initialize arrays setup" bA
+# initialize arrays
+$0	
+endsnippet
+
+# Initialize arrays
+snippet ia "Initialize arrays" bA
+${1:variable} = zeros($2,$3) # ${4:comment}
+$0
+endsnippet
+
+# Import and sort raw data setup
+snippet pimport "Import and sort data setup" bA
+#%% Import and sort raw data %%%
+filename = '${1:file}' # File name
+${2:X}range = '${3:Y1:Z2}' # Range of ${4:X} data
+[${5:Array var}] = xlsread(filename,${6:sheet #},${7:Xrange}) # Import ${8:X} data
+$0
+endsnippet
+
+# Import raw data
+snippet irange "Import raw data" bA
+${1:X}range = '${2:Y1:Z2}' # Range of ${3:X} data
+$0
+endsnippet
+
+# Import raw data
+snippet ifile "Import excel file" bA
+${1:file} = '${2:filename}' # ${3:Description}
+$0
+endsnippet
+
+# Import raw data to variable/array
+snippet array "Import raw data to array" bA
+[${1:Array var}] = xlsread(filename,${2:sheet #},${3:Xrange}) # Import ${4:X} data
+$0
+endsnippet
+
+# Sort data into separate arrays setup
+snippet psort "Sort data" bA
+# Sort raw data into separate arrays
+endsnippet
+
+# Sort data into separate arrays
+snippet sort "Sort data" bA
+${1:{var}} = ${2:{import}}.iloc[${3:rows},${4:cols}] # ${5:comment}
+$0
+endsnippet
+
+# curly bracket
+snippet { "curly bracket" iA
+{$1}$0
+endsnippet
+
+# regular parenthesis
+snippet ( "regular parenthesis" iA
+($1)$0
+endsnippet
+
+# quotations
+snippet " "quotations" iA
+"$1"$0
+endsnippet
+
+# single quotes 
+snippet ' "single quotes" iA
+'$1'$0
+endsnippet
+
+# brackets
+snippet [ "brackets" iA
+[$1]$0
+endsnippet
+
+# Make a comment
+snippet com "comment" A
+# $1 $0
+endsnippet
+
+# for loop
+snippet for "for loop" bA
+for ${1:counter} in range(${2:X}): $0
+endsnippet
+
+### Experiment script mass template
+snippet etemp "Experiment template" bA
+
+# Clear memory
+clear
+clc
+
+# Specify constants
+${1:constant} = ${2:number} # ${3:comment} [${4:units}]
+
+# Conversions
+$5
+
+# initialize arrays
+${6:variable} = zeros($7,$8) # ${9:comment}
+
+#%% Import and sort raw data %%%
+filename = '$10' # File name
+${11:X}range = '${12:Y1:Z2}' # Range of ${13:X} data
+[${14:Array var}] = xlsread(filename,${15:sheet #},${16:Xrange}) # Import ${17:X} data
+
+# Sort raw data into separate arrays
+${18:{var}} = ${19:{Array var}}(${20:{rows}},${21:{cols}}) # $5
+$0
+endsnippet
+
+# Figure labels, title, and legend
+snippet label "Figure attributes" bA
+xlabel(' $1 ')
+ylabel(' $2 ')
+title(' $3 ')
+legend${4:#} = legend(' $5 ') $0
+endsnippet
+
